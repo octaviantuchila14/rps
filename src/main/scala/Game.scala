@@ -6,39 +6,37 @@ import scala.util.Random
   * Created by octavian on 27/04/2017.
   */
 
-class Game(outputHandler: OutputHandler) {
+class Game(ioHandler: IOHandler) {
 
-  def askGameOption(scanner: Scanner, outputHandler: OutputHandler): Char = {
-    outputHandler.write("Select M for Multi Player, S for Single Player")
-    val gameOption = scanner.nextLine().replaceAll("""(?m)\s+$""", "")
+  def askGameOption(ioHandler: IOHandler): Char = {
+    ioHandler.write("Select M for Multi Player, S for Single Player")
+    val gameOption = ioHandler.nextLine.replaceAll("""(?m)\s+$""", "")
     if(List("m", "M", "s", "S").contains(gameOption)) {
       gameOption(0)
     }
     else {
-      askGameOption(scanner, outputHandler)
+      askGameOption(ioHandler)
     }
   }
 
   def startGame = {
 
-    val scanner = new java.util.Scanner(System.in)
+    ioHandler.write("############################### WELCOME !!! ###############################")
 
-    outputHandler.write("############################### WELCOME !!! ###############################")
-
-    val gameOption = askGameOption(scanner, outputHandler)
+    val gameOption = askGameOption(ioHandler)
     val gameSettings = if(List('m', 'M').contains(gameOption)) {
       new MultiPlayerSettings
     } else {
       new SinglePlayerSettings
     }
 
-    outputHandler.write("###########################################################################")
-    outputHandler.write("############################### NEW GAME ##################################")
-    outputHandler.write("###########################################################################")
+    ioHandler.write("###########################################################################")
+    ioHandler.write("############################### NEW GAME ##################################")
+    ioHandler.write("###########################################################################")
 
     while(true) {
-      outputHandler.write("############################### NEW TURN ##################################")
-      gameSettings.runGame(scanner, outputHandler)
+      ioHandler.write("############################### NEW TURN ##################################")
+      gameSettings.runGame(ioHandler)
     }
 
   }
@@ -48,7 +46,8 @@ class Game(outputHandler: OutputHandler) {
 object Game {
 
   def main(args: Array[String]): Unit = {
-    val outputHandler = new StandardOutputHandler()
-    val game = new Game(outputHandler)
+    val scanner = new java.util.Scanner(System.in)
+    val ioHandler = new StandardIOHandler(scanner)
+    val game = new Game(ioHandler)
   }
 }
