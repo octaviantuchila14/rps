@@ -15,24 +15,24 @@ trait Settings {
     else randomInt%3
   }
 
-  def runGame(scanner: Scanner): Unit
+  def runGame(scanner: Scanner, outputHandler: OutputHandler): Unit
 
-  def decideResult(firstRoll: Int, secondRoll: Int) = {
+  def decideResult(firstRoll: Int, secondRoll: Int, outputHandler: OutputHandler) = {
 
     if(firstRoll == 0 && secondRoll == (Results.gameResults.length - 1)) {
-      println(messages("Win"))
+      outputHandler.write(messages("Win"))
     }
     else if(firstRoll == (Results.gameResults.length - 1) && secondRoll == 0) {
-      println(messages("Loose"))
+      outputHandler.write(messages("Loose"))
     }
     else if(firstRoll > secondRoll) {
-      println(messages("Win"))
+      outputHandler.write(messages("Win"))
     }
     else if(firstRoll < secondRoll) {
-      println(messages("Loose"))
+      outputHandler.write(messages("Loose"))
     }
     else {
-      println(messages("Equality"))
+      outputHandler.write(messages("Equality"))
     }
 
   }
