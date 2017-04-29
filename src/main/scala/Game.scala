@@ -6,42 +6,35 @@ import scala.util.Random
 
 object Game {
 
-  def getRandomChoice: Int = {
-    val randomInt = new Random().nextInt()
-    if(randomInt < 0) (randomInt * -1)%3
-    else randomInt%3
-  }
-
   def main(args: Array[String]): Unit = {
+
+    val scanner = new java.util.Scanner(System.in)
+
+
+    println("############################### WELCOME !!! ###############################")
+
+    var gameOption = "I"
+    do {
+      println("Select M for Multi Player, S for Single Player")
+      gameOption = scanner.nextLine().replaceAll("""(?m)\s+$""", "")
+    } while(!List("m", "M", "s", "S").contains(gameOption))
+
+
+    val gameSettings = if(List("m", "M").contains(gameOption)) {
+      new MultiPlayerSettings
+    } else {
+      new SinglePlayerSettings
+    }
+
+    println("###########################################################################")
+    println("############################### NEW GAME ##################################")
+    println("###########################################################################")
+
 
     while(true) {
 
-      println("Select 0 for rock, 1 for paper, 2 for scissors")
-      val userValue = readInt()
-
-      val randomValue = getRandomChoice
-
-      println("Random value is: " + randomValue)
-      val computerValue = Results.gameResults(randomValue)
-
-
-      println("The computer chose " + computerValue)
-      if(userValue == 0 && randomValue == 2) {
-        println("You win!")
-      }
-      else if(userValue == 2 && randomValue == 0) {
-        println("You loose!")
-      }
-      else if(userValue > randomValue) {
-        println("You win!")
-      }
-      else if(userValue < randomValue) {
-        println("You loose!")
-      }
-      else {
-        println("Equality! Try again!")
-      }
-
+      println("############################### NEW TURN ##################################")
+      gameSettings.runGame(scanner)
     }
 
   }
