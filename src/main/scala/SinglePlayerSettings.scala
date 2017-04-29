@@ -5,33 +5,15 @@ import java.util.Scanner
   */
 class SinglePlayerSettings extends Settings {
 
+  def messages: Map[String, String] = Map("Loose" -> "You win!", "Equality" -> "Equality! Try again!", "Win" -> "You loose!")
+
   def runGame(scanner: Scanner): Unit = {
 
     val userValue = new Player().chooseHand(scanner)
-
     val randomValue = getRandomChoice
-
-    println("Random value is: " + randomValue)
     val computerValue = Results.gameResults(randomValue)
-
-
     println("The computer chose " + computerValue)
-    if(userValue == 0 && randomValue == 2) {
-      println("You win!")
-    }
-    else if(userValue == 2 && randomValue == 0) {
-      println("You loose!")
-    }
-    else if(userValue > randomValue) {
-      println("You win!")
-    }
-    else if(userValue < randomValue) {
-      println("You loose!")
-    }
-    else {
-      println("Equality! Try again!")
-    }
-
+    decideResult(userValue, randomValue)
   }
 
 }
