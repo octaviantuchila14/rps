@@ -7,6 +7,8 @@ import scala.util.Random
   */
 trait Settings {
 
+  val messages: Map[String, String] = Map()
+
   def getRandomChoice: Int = {
     val randomInt = new Random().nextInt()
     if(randomInt < 0) (randomInt * -1)%3
