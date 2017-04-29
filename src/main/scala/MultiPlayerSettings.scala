@@ -5,7 +5,7 @@ import java.util.Scanner
   */
 class MultiPlayerSettings extends Settings {
 
-  override val messages: Map[String, String] = Map("Loose" -> "Player 1 wins!", "Equality" -> "Equality! Try again!", "Win" -> "Player 2 wins!")
+  override val messages: Map[String, String] = Map("Loose" -> "Player 2 wins!", "Equality" -> "Equality! Try again!", "Win" -> "Player 1 wins!")
 
   def runGame(scanner: Scanner): Unit = {
 
