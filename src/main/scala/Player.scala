@@ -13,6 +13,7 @@ class Player {
       userValue = scanner.nextLine().replaceAll("""(?m)\s+$""", "").toInt
 
     } while(!List(0, 1, 2).contains(userValue))
+    userValue
   }
 
 }
