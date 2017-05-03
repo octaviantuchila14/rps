@@ -1,4 +1,7 @@
+package myrps
+
 import java.util.Scanner
+
 
 /**
   * Created by octavian on 29/04/2017.

@@ -1,3 +1,5 @@
+package myrps
+
 /**
   * Created by octavian on 28/04/2017.
   */

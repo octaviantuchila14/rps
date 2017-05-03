@@ -1,6 +1,7 @@
-import java.util.Scanner
-
+package myrps
 import scala.util.Random
+
+
 
 /**
   * Created by octavian on 29/04/2017.
@@ -18,6 +19,8 @@ trait Settings {
   def runGame(ioHandler: IOHandler): Unit
 
   def decideResult(firstRoll: Int, secondRoll: Int, ioHandler: IOHandler) = {
+    println("firstRoll: " + firstRoll)
+    println("secondRoll: " + secondRoll)
 
     if(firstRoll == 0 && secondRoll == (Results.gameResults.length - 1)) {
       ioHandler.write(messages("Win"))

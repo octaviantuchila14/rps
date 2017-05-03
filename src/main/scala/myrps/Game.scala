@@ -1,6 +1,5 @@
-import java.util.Scanner
+package myrps
 
-import scala.util.Random
 
 /**
   * Created by octavian on 27/04/2017.
