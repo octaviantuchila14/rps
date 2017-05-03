@@ -8,5 +8,6 @@ object Results {
   case object Paper extends EnumVal
   case object Scissors extends EnumVal
   val gameResults = Seq(Rock, Paper, Scissors)
+  val RESULTS_NUMBER = gameResults.length
 }
 

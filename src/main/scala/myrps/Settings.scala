@@ -11,8 +11,8 @@ trait Settings {
 
   def getRandomChoice: Int = {
     val randomInt = new Random().nextInt()
-    if(randomInt < 0) (randomInt * -1)%3
-    else randomInt%3
+    if(randomInt < 0) (randomInt * -1)%Results.RESULTS_NUMBER
+    else randomInt%Results.RESULTS_NUMBER
   }
 
   def runGame(ioHandler: IOHandler): Unit

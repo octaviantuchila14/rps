@@ -1,9 +1,7 @@
-import org.scalactic.source.Position
-import org.scalatest.Tag
+package myrps
+
+import org.mockito.Mockito.{verify, when}
 import org.scalatest.mockito.MockitoSugar
-import org.mockito.Mockito.when
-import org.scalatest.prop.PropertyChecks
-import org.mockito.Mockito.verify
 
 
 /**
@@ -29,7 +27,7 @@ class PlayerTest extends org.scalatest.FunSuite with MockitoSugar {
     val player = new Player(name)
 
     when(mockIOHandler.nextLine).thenReturn("m")
-    when(mockIOHandler.nextLine).thenReturn("3")
+    when(mockIOHandler.nextLine).thenReturn((Results.RESULTS_NUMBER + 1).toString)
     when(mockIOHandler.nextLine).thenReturn("2")
 
 
