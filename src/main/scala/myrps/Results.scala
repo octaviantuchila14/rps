@@ -11,5 +11,6 @@ object Results {
   case object Scissors extends EnumVal
   val gameResults = Seq(Rock, Paper, Scissors)
   val RESULTS_NUMBER = gameResults.length
+  val SELECTION_MESSAGE = ": select 0 for rock, 1 for paper, 2 for scissors"
 }
 
