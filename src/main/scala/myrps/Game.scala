@@ -7,14 +7,15 @@ package myrps
 
 class Game(ioHandler: IOHandler) {
 
-  def askGameOption(ioHandler: IOHandler): Char = {
+  def askGameOption: Char = {
     ioHandler.write("Select M for Multi Player, S for Single Player")
+
     val gameOption = ioHandler.nextLine.replaceAll("""(?m)\s+$""", "")
     if(List("m", "M", "s", "S").contains(gameOption)) {
       gameOption(0)
     }
     else {
-      askGameOption(ioHandler)
+      askGameOption
     }
   }
 
@@ -22,7 +23,7 @@ class Game(ioHandler: IOHandler) {
 
     ioHandler.write("############################### WELCOME !!! ###############################")
 
-    val gameOption = askGameOption(ioHandler)
+    val gameOption = askGameOption
     val gameSettings = if(List('m', 'M').contains(gameOption)) {
       new MultiPlayerSettings
     } else {

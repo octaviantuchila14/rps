@@ -26,10 +26,7 @@ class PlayerTest extends org.scalatest.FunSuite with MockitoSugar {
     val name = "me"
     val player = new Player(name)
 
-    when(mockIOHandler.nextLine).thenReturn("m")
-    when(mockIOHandler.nextLine).thenReturn((Results.RESULTS_NUMBER + 1).toString)
-    when(mockIOHandler.nextLine).thenReturn("2")
-
+    when(mockIOHandler.nextLine).thenReturn("m").thenReturn((Results.RESULTS_NUMBER + 1).toString).thenReturn("2")
 
     player.chooseHand(mockIOHandler)
     verify(mockIOHandler).write(name + ": select 0 for rock, 1 for paper, 2 for scissors")

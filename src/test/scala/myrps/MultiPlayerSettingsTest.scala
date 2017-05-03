@@ -18,8 +18,7 @@ class MultiPlayerSettingsTest extends FunSuite with MockitoSugar {
     val mockIOHandler = mock[IOHandler]
     val mpSettings = new MultiPlayerSettings()
 
-    when(mockIOHandler.nextLine).thenReturn("2")
-    when(mockIOHandler.nextLine).thenReturn("1")
+    when(mockIOHandler.nextLine).thenReturn("2").thenReturn("1")
 
     mpSettings.runGame(mockIOHandler)
 

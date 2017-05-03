@@ -19,9 +19,6 @@ trait Settings {
   def runGame(ioHandler: IOHandler): Unit
 
   def decideResult(firstRoll: Int, secondRoll: Int, ioHandler: IOHandler) = {
-    println("firstRoll: " + firstRoll)
-    println("secondRoll: " + secondRoll)
-
     if(firstRoll == 0 && secondRoll == (Results.gameResults.length - 1)) {
       ioHandler.write(messages("Win"))
     }
@@ -37,7 +34,6 @@ trait Settings {
     else {
       ioHandler.write(messages("Equality"))
     }
-
   }
 
 }
