@@ -8,10 +8,16 @@ import java.util.Scanner
   */
 class StandardIOHandler(scanner: Scanner) extends IOHandler {
 
+  /*
+    Manages output.
+   */
   def write(toWrite: String): Unit = {
     println(toWrite)
   }
 
+  /*
+    Manages input.
+   */
   def nextLine: String = {
     scanner.nextLine()
   }

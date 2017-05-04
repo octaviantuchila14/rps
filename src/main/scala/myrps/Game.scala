@@ -7,6 +7,9 @@ package myrps
 
 class Game(ioHandler: IOHandler) {
 
+  /*
+     prompt the user on wheter he/she wants a single player or a multiplayer game
+   */
   def askGameOption: Char = {
     ioHandler.write("Select M for Multi Player, S for Single Player")
 
@@ -19,7 +22,10 @@ class Game(ioHandler: IOHandler) {
     }
   }
 
-  def startGame = {
+  /*
+   introduces the player to the game
+   */
+  def startGame() = {
 
     ioHandler.write("############################### WELCOME !!! ###############################")
 
@@ -49,5 +55,6 @@ object Game {
     val scanner = new java.util.Scanner(System.in)
     val ioHandler = new StandardIOHandler(scanner)
     val game = new Game(ioHandler)
+    game.startGame()
   }
 }

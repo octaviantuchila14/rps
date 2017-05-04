@@ -7,6 +7,9 @@ class MultiPlayerSettings extends Settings {
 
   override val messages: Map[String, String] = Map("Loose" -> "Player 2 wins!", "Equality" -> "Equality! Try again!", "Win" -> "Player 1 wins!")
 
+  /*
+    creates two players and starts the game
+   */
   def runGame(ioHandler: IOHandler): Unit = {
 
     val player1Hand = new Player("Player 1").chooseHand(ioHandler)

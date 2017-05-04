@@ -4,6 +4,9 @@ package myrps
   * Created by octavian on 28/04/2017.
   */
 
+/*
+  Holds the result type as well as the message displayed to the user when asking for a result.
+ */
 object Results {
   sealed trait EnumVal
   case object Rock extends EnumVal

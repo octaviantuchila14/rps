@@ -7,8 +7,10 @@ class SinglePlayerSettings extends Settings {
 
   override val messages: Map[String, String] = Map("Loose" -> "You loose!", "Equality" -> "Equality! Try again!", "Win" -> "You win!")
 
+  /*
+    Creates a player and asks for a result from the user.
+   */
   def runGame(ioHandler: IOHandler): Unit = {
-
     val userValue = new Player("Player 1").chooseHand(ioHandler)
     val randomValue = getRandomChoice
     val computerValue = Results.gameResults(randomValue)

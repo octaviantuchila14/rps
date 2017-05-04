@@ -10,7 +10,7 @@ class Player(name: String) {
   def chooseHand(ioHandler: IOHandler): Int = {
     ioHandler.write(name + Results.SELECTION_MESSAGE)
     val userValue = ioHandler.nextLine.replaceAll("""(?m)\s+$""", "")
-    if(userValue.forall(_.isDigit) && List(0, 1, 2).contains(userValue.toInt)) {
+    if(userValue != "" && userValue.forall(_.isDigit) && List(0, 1, 2).contains(userValue.toInt)) {
       userValue.toInt
     }
     else {
